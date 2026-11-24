@@ -22,7 +22,7 @@ B O|滑翔机着陆滑橇|比较滑橇和单轮接地后的摩擦与滑跑距离
 C E|细长机翼的厚翼根|细长描述俯视外形，厚度描述截面。可以同时采用两种特征，再比较翼梁高度。
 C F|细长薄翼|让同一副长翼采用更薄的截面；翼型阻力与抗弯刚度需要分别检验。
 C G|能收进机库的长翼|折起外翼可减小停放宽度。试着切换展开和折叠状态，找出铰链位置。|折叠
-C H|长翼遇到阵风会怎样|Helios HP03 遇到紊流后，长翼向上弯曲并持续保持大角度。调查发现，改装后的重量分布与柔性机翼共同影响了飞机对扰动的反应。||||||https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20070022260.pdf
+C H|长翼遇到阵风会怎样|Helios HP03 遇到紊流后，长翼向上弯曲并持续保持大角度。调查发现，改装后的重量分布与柔性机翼共同影响了飞机对扰动的反应。|||StudyCH|HP03 大上反角 · NASA 图 5|https://ntrs.nasa.gov/api/citations/20070022260/downloads/20070022260.pdf#page=9|https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20070022260.pdf
 C I|沿翼分布的电动机|Helios 的长翼上分布着多台电动机。沿翼布置动力后，电缆走线与重量分布也随之改变。|helios
 C K|太阳能飞翼|Helios 原型机把太阳能电池铺在翼面上。观察实机的翼展和翼面，再想想结构重量与可铺设面积的关系。|helios
 C P|长翼和短翼的对照试验|保持机翼面积、来流速度和升力一致，改变翼展。测量阻力，并记录模型支架干扰。|试验
@@ -36,20 +36,20 @@ E G|厚翼内的折叠机构|用剖面图划出铰链和翼梁的位置。收折
 E I|翼内电机安装空间|用厚翼剖面的实际高度检查电机和冷却通道能否容纳，并比较安装处的载荷。
 E L|翼内电池舱|较厚的翼段提供布置空间。保留翼梁后，再估算电池和检修口可以占用的区域。
 E N|翼内轮舱|把收起的轮子画进翼根剖面。比较轮胎直径与局部厚度，同时避开主梁。
-E P|厚翼在风洞里能产生多少升力|NASA 对同系列翼型做低速风洞试验。在马赫数 0.15、雷诺数 600 万时，相对厚度从 13% 增至 21%，最大升力系数约从 2.0 降到 1.8。|试验||AirfoilSections|NASA · 试验用的三种翼型，图 1|https://ntrs.nasa.gov/api/citations/19790004829/downloads/19790004829.pdf#page=23|https://ntrs.nasa.gov/citations/19790004829
+E P|厚翼在风洞里能产生多少升力|NASA 对同系列翼型做低速风洞试验。在马赫数 0.15、雷诺数 600 万时，相对厚度从 13% 增至 21%，最大升力系数约从 2.0 降到 1.8。|试验||StudyEP|厚翼模型在风洞中的安装 · NASA 图 3|https://ntrs.nasa.gov/api/citations/19790004829/downloads/19790004829.pdf#page=25|https://ntrs.nasa.gov/citations/19790004829
 F G|薄翼折叠接头|把接头放入薄翼剖面，检查销轴和紧固件的空间。凸出的整流罩也要计入外形。
 F H|薄翼尖静载试验|在不同翼尖挂相同小载荷，记录位移。材料、内部加强件和厚度分别影响结果。|试验
 F K|薄翼表面铺片|考虑把薄型电池片贴在上翼面；先检查曲面贴合和导线出口，再看外形台阶。
-F P|薄翼抬起时的升力|NACA 在低速风洞测量厚度为弦长 6% 和 10% 的对称翼型。选襟翼居中的曲线，沿横轴改变迎角，可以读出每种薄翼的升力变化。|试验|||||https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19930092175.pdf
-G H|阵风中，翼尖何时折起|代尔夫特理工团队测试五种机翼模型，改变机翼刚度和翼尖铰链的释放条件，用翼根弯矩与铰链锁定时的读数对照。||||||https://repository.tudelft.nl/record/uuid:74d1f846-3b47-49cf-bae2-f857481290ed
+F P|薄翼抬起时的升力|NACA 在低速风洞测量厚度为弦长 6% 和 10% 的对称翼型。选襟翼居中的曲线，沿横轴改变迎角，可以读出每种薄翼的升力变化。|试验||StudyFP|襟翼中立时的气动力曲线 · NACA 图 4 局部|https://ntrs.nasa.gov/api/citations/19930092175/downloads/19930092175.pdf#page=9|https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19930092175.pdf
+G H|阵风中，翼尖何时折起|代尔夫特理工团队测试五种机翼模型，改变机翼刚度和翼尖铰链的释放条件，用翼根弯矩与铰链锁定时的读数对照。|||StudyGH|代尔夫特理工 · 据试验方法绘制|https://repository.tudelft.nl/record/uuid:74d1f846-3b47-49cf-bae2-f857481290ed|https://repository.tudelft.nl/record/uuid:74d1f846-3b47-49cf-bae2-f857481290ed
 G K|可折太阳能翼|将电池片分区铺设，给铰链和电线弯曲留出空间。比较展开面积与收拢体积。
 G L|折叠段供电线束|把电池放在固定段，给跨过折叠接头的电线预留弯曲长度，检查收拢时是否受夹。
 G O|可收拢滑橇|构想用铰链收拢滑橇。比较收起后的空间与放下时所需的锁定强度。
-G P|阵风到来时放开翼尖|米兰理工团队在风洞里让折叠翼尖迎接阵风。翼尖在阵风到来时能够自由转动，才发挥了减轻载荷的作用。|试验|||||https://re.public.polimi.it/handle/11311/1270070
-H K|翼面弯动，发电功率怎么变|在带太阳能电池的柔性扑翼上，研究者同时记录机翼变形和发电功率。作者提出，翼面扭转可能改变电池朝向阳光的角度。||||||https://doi.org/10.1088/0964-1726/24/6/065042
+G P|阵风到来时放开翼尖|米兰理工团队在风洞里让折叠翼尖迎接阵风。翼尖在阵风到来时能够自由转动，才发挥了减轻载荷的作用。|试验||StudyGP|米兰理工 · 据阵风风洞试验方法绘制|https://re.public.polimi.it/handle/11311/1270070|https://re.public.polimi.it/handle/11311/1270070
+H K|翼面弯动，发电功率怎么变|在带太阳能电池的柔性扑翼上，研究者同时记录机翼变形和发电功率。作者提出，翼面扭转可能改变电池朝向阳光的角度。|||StudyHK|Robo Raven III · Perez-Rosado 博士论文图 4.1|https://api.drum.lib.umd.edu/server/api/core/bitstreams/bae8a9bb-4e2e-4c3e-aef2-2dccf677650f/content#page=68|https://doi.org/10.1088/0964-1726/24/6/065042
 H L|翼尖质量试验|比较电池靠近翼根与靠近翼尖的质量分布。用等质量模型验证静挠度变化。|试验
 H P|柔性翼尖风洞试验|在多个风速下拍摄翼尖位置，比较刚性和柔性模型，并保持安装角一致。|试验
-I J|电动螺旋桨|研究者固定电机、电池和控制器，轮换 32 副螺旋桨并测量推力和效率。同一台电机的表现会随所配桨叶而变。|||ElectricProp|电推进外形参考 · NASA X-57，Carla Thomas 摄|https://www.nasa.gov/wp-content/uploads/2023/09/june-2023-x-press.pdf#page=4|https://onlinelibrary.wiley.com/doi/10.1002/eng2.70565
+I J|电动螺旋桨|研究者固定电机、电池和控制器，轮换 32 副螺旋桨并测量推力和效率。同一台电机的表现会随所配桨叶而变。|||StudyIJ|Goli 等 · 据正文图 3a 的推力数值重绘|https://onlinelibrary.wiley.com/doi/10.1002/eng2.70565|https://onlinelibrary.wiley.com/doi/10.1002/eng2.70565
 I K|太阳能电推进|Helios 将翼面采集的太阳能用于电推进。能源采集和推进分布是观察同一架原型机的两个角度。|helios
 I L|电机负载怎样反映在电池上|研究者在台架上测量电机和控制器效率，再用飞行数据检验模型。在一次超过五分钟的飞行中，根据桨的转速和转矩预测的电池电压与实测相差不到 5%。|||ElectricStand|动力台架 · Saemi 与 Benedict，图 3，CC BY 4.0|https://www.mdpi.com/2226-4310/11/1/16#fig_body_display_aerospace-11-00016-f003|https://www.mdpi.com/2226-4310/11/1/16
 I M|电动水上飞机构想|用电动推进搭配浮筒。检查飞溅水可能到达的位置，以及电机系统的防水和散热需求。
@@ -57,8 +57,8 @@ I P|电动机舱冷却试验|在风洞中放置带通风口的机舱模型，比
 J K|太阳能螺旋桨飞机|太阳能经电动机驱动螺旋桨。Helios 展示了多个桨盘沿一副长翼分布的构型。|helios
 J M|浮筒与螺旋桨间隙|在侧视图上比较桨盘位置、浮筒前端和静水线，并观察水面滑行的飞溅范围。
 J O|雪地螺旋桨飞机|使用滑橇后重新检查桨尖离雪面的间隙，考虑滑橇下沉时机身姿态的变化。
-J P|来流变快，桨还能推多大力|伊利诺伊大学团队测试了 79 副小型螺旋桨。固定一副桨的转速，逐步提高风洞风速，可看到推力一路变化，直到进入零推力状态。|试验||ElectricProp|电推进外形参考 · NASA X-57，Carla Thomas 摄|https://www.nasa.gov/wp-content/uploads/2023/09/june-2023-x-press.pdf#page=4|https://m-selig.ae.illinois.edu/pubs/BrandtSelig-2011-AIAA-2011-1255-LRN-Propellers.pdf
-K L|白天充电的机载电源|AtlantikSolar 连续飞行 81 小时。白天翼面电池供电并给蓄电池充电，夜间靠储能飞行。论文记录这次飞行的最低剩余电量为 39%。||||||https://atlantiksolar.ethz.ch/wp-content/downloads/publications/JFR_81hFlight_paper_final.pdf
+J P|来流变快，桨还能推多大力|伊利诺伊大学团队测试了 79 副小型螺旋桨。固定一副桨的转速，逐步提高风洞风速，可看到推力一路变化，直到进入零推力状态。|试验||StudyJP|APC 桨的推力系数 · Brandt 与 Selig，图 13|https://m-selig.ae.illinois.edu/pubs/BrandtSelig-2011-AIAA-2011-1255-LRN-Propellers.pdf#page=11|https://m-selig.ae.illinois.edu/pubs/BrandtSelig-2011-AIAA-2011-1255-LRN-Propellers.pdf
+K L|白天充电的机载电源|AtlantikSolar 连续飞行 81 小时。白天翼面电池供电并给蓄电池充电，夜间靠储能飞行。论文记录这次飞行的最低剩余电量为 39%。|||StudyKL|AtlantikSolar 起飞 · Oettershagen 等，图 1a|https://atlantiksolar.ethz.ch/wp-content/downloads/publications/JFR_81hFlight_paper_final.pdf#page=2|https://atlantiksolar.ethz.ch/wp-content/downloads/publications/JFR_81hFlight_paper_final.pdf
 K M|水面停泊补电构想|考虑停泊时用光照补充仪表用电；检查翼面遮挡、湿气和停泊朝向的影响。
 K P|翼面铺片阻力试验|在同一模型上比较平滑表面和模拟电池片接缝的表面，观察阻力差异。|试验
 L M|水上飞机电池布置|比较电池装在机身和浮筒附近的两种位置，考察重心、防水和检修难度。
@@ -68,7 +68,7 @@ M N|水陆两栖飞机|照片中的 Cessna U206G 在浮筒下装有机轮。浮�
 M O|浮筒与滑橇的接地比较|在同一机身模型上分别装浮筒和滑橇，比较水上浮力和雪面支撑的差别。|试验
 M P|浮筒附加阻力测量|给模型装上或拆下浮筒，在相同风速和姿态下对照阻力。水上浮力需另做水槽试验。|试验
 N O|轮橇组合起落架|比较硬地滚行和松雪滑行对接地方式的要求，画出轮胎与滑橇的相对位置。
-N P|机轮收起多少才减阻|NACA 在风洞里把模型机轮逐步收起并测量阻力。在这组试验里，至少收起一半，阻力才低于表现最好的固定式起落架。|试验||GearRig|NACA · 起落架风洞模型，报告 518|https://ntrs.nasa.gov/api/citations/19930091591/downloads/19930091591.pdf#page=5|https://ntrs.nasa.gov/citations/19930091591
+N P|机轮收起多少才减阻|NACA 在风洞里把模型机轮逐步收起并测量阻力。在这组试验里，至少收起一半，阻力才低于表现最好的固定式起落架。|试验||StudyNP|机轮收起程度与阻力 · NACA 报告 518 原图|https://ntrs.nasa.gov/api/citations/19930091591/downloads/19930091591.pdf#page=7|https://ntrs.nasa.gov/citations/19930091591
 O P|滑橇外形风洞试验|比较有无滑橇时模型的飞行阻力，保持机身姿态和支杆布局一致。|试验
 浮筒水上飞机 N|水陆两栖飞机|给浮筒构型加上可收起的机轮，就能兼顾水面与跑道。这里用 Cessna U206G 的实机照片对照这一步构型变化。|amph
 C K|太阳能翼面布置试验|在同样翼面积上改变电池片的位置，比较有效受光面积，并记录给翼梁和检修口留下的空间。|试验
@@ -102,13 +102,13 @@ G N|铰接式收轮布置|用铰链表示机轮的转动轴，把轮子从放下
 H I|电机装在哪儿，翼尖弯多少|用同一块配重模拟电机，先放近翼根，再移到翼尖。量一量两次试验中翼尖向下移动了多少。|试验
 H J|柔性翼尖的桨流观察|在模型上比较螺旋桨关闭和开启时的翼尖位置，用视频记录翼尖振动，再观察变化是否可重复。|试验
 I N|电机驱动的收轮机构|用电动机带动收轮动作，比较从放下到收起、从收起到放下两段的动作时间和电流。
-J L|从桨的负载估算电池电压|同一动力链里，桨的转速和转矩决定电机需要提供多少轴功率。研究团队把电机、控制器和电池模型连起来，并用飞行中记录的电压检验预测。|试验||ElectricStand|动力台架 · Saemi 与 Benedict，图 3，CC BY 4.0|https://www.mdpi.com/2226-4310/11/1/16#fig_body_display_aerospace-11-00016-f003|https://www.mdpi.com/2226-4310/11/1/16
+J L|从桨的负载估算电池电压|同一动力链里，桨的转速和转矩决定电机需要提供多少轴功率。研究团队把电机、控制器和电池模型连起来，并用飞行中记录的电压检验预测。|试验||StudyJL|飞行中记录的桨转速与转矩等 · Saemi 与 Benedict 图 11，CC BY 4.0|https://mdpi-res.com/aerospace/aerospace-11-00016/article_deploy/html/images/aerospace-11-00016-g011.png|https://www.mdpi.com/2226-4310/11/1/16
 J N|收桨收轮的动力滑翔机|Stemme S12 的螺旋桨可折进机鼻，机轮也能收起。照片里能看到包住折叠桨的机鼻整流罩。|stemme
 K N|太阳能飞机收轮用电估算|先比较收轮电机工作时的功率和电池片当时的发电功率，再估算要用蓄电池补多少电。
 L P|电池舱通风试验|用电池舱模型比较不同通风口布置，记录舱内温度和进出口风速。用相同的热源功率作为对照。|试验
 C H|长翼挠度测量|在机翼模型上标记根部、中段和翼尖，分级加载并测量三处的位移，画出不同载荷下的弯曲曲线。|试验
 D J|螺旋桨放在翼前还是翼后|简图采用机头螺旋桨，右图 Long-EZ 的桨在机尾。设想用同一副后掠翼做两种模型，对比机翼附近的气流。|试验
-I J|同一台电机怎样选桨|台架上用同一套电源和电机试不同直径、桨距的桨。比较能产生相近推力的测试点，再看每瓦电功率能换来多少推力。|试验||ElectricProp|电推进外形参考 · NASA X-57，Carla Thomas 摄|https://www.nasa.gov/wp-content/uploads/2023/09/june-2023-x-press.pdf#page=4|https://onlinelibrary.wiley.com/doi/10.1002/eng2.70565
+I J|同一台电机怎样选桨|同一套台架上，推力排名第一的是 P1_30，推力与轴功率之比排名第一的是 P3_30。选桨时要先确定想比较的性能指标。|试验||StudyIJ2|Goli 等 · 据表 11 的排名重绘|https://onlinelibrary.wiley.com/doi/10.1002/eng2.70565|https://onlinelibrary.wiley.com/doi/10.1002/eng2.70565
 K L|白天发电与夜间放电对照|用相同初始电量的蓄电池，在两种光照下各充电相同时间，再接同一盏灯，比较能亮多久。|试验
 M N|浮筒机轮的收放检查|画出机轮收起和放下时的侧视图。水上检查机轮是否伸出浮筒底部，陆上检查机轮能否让浮筒离开地面。|试验
 A Q|轻型机的前小翼|把小翼布置在主翼前方，比较不同位置对机身前后抬头趋势的影响。
@@ -121,20 +121,20 @@ Q R|前小翼与竖翼尖|Long-EZ 的小翼在机鼻附近，竖起的翼梢小�
 Q S|前小翼与主翼襟翼|把襟翼装在主翼后缘。比较收起和放下时的抬头趋势，检查前小翼还能提供多少配平余量。
 Q T|前小翼飞机的仪器舱|把仪器挂在主翼下方，比较吊舱前后位置对重心和两副翼载荷分配的影响。
 Q U|前小翼飞机的固定主轮|画出固定主轮与座舱的相对位置。比较机身抬头时前小翼和机尾离地面的距离。
-B R|滑翔机加翼梢小翼划算吗|Maughmer 比较滑翔机装小翼后的直线与盘旋表现，并用试飞数据核对预测。小翼在相当一部分速度范围内有收益，收益大小随飞行状态变化。|stemme|||||https://demec.ufmg.br/cea/Disciplinas/AerodinamicaAplicada/artigo29.pdf
+B R|滑翔机加翼梢小翼划算吗|Maughmer 比较滑翔机装小翼后的直线与盘旋表现，并用试飞数据核对预测。小翼在相当一部分速度范围内有收益，收益大小随飞行状态变化。|stemme||StudyBR|Maughmer · 据速度极曲线比较方法绘制|https://demec.ufmg.br/cea/Disciplinas/AerodinamicaAplicada/artigo29.pdf|https://demec.ufmg.br/cea/Disciplinas/AerodinamicaAplicada/artigo29.pdf
 C R|细长机翼的竖翼尖|一副长翼试装两种高度的翼梢小翼。比较翼尖重量，也看看安装后增加了多少侧面积。
 D R|后掠翼的翼尖向上还是向外|Whitcomb 在运输机模型上比较竖起的翼梢小翼和向外延长的翼尖。在翼根弯矩增量相近的条件下，竖起小翼的方案取得了更大的减阻收益。|longez||WingletRig|NASA · Whitcomb 的风洞模型，图 1(a)|https://ntrs.nasa.gov/api/citations/19760019075/downloads/19760019075.pdf#page=20|https://ntrs.nasa.gov/citations/19760019075
 G R|折起外翼时的翼梢间隙|让外翼绕接头转动，画出立起的翼尖会扫过哪些位置，检查停放时会不会碰到机身。
 H R|翼尖弯曲后的小翼方向|在模型翼尖装上小翼，给主翼施加相同载荷，观察主翼弯曲前后小翼指向怎样变化。|试验
 K R|翼梢附近的太阳能铺片|比较电池片铺在平直翼面和竖起翼尖时的受光差异，记录同一时刻两处的发电功率。
-P R|翼梢小翼的低速风洞试验|研究者在低速风洞里测试带小翼的机翼模型，风速约为每秒 30 至 46 米。实测阻力系数的降幅与计算预测处于同一量级。|试验||WingletRig|小翼风洞模型参考 · Whitcomb，图 1(a)|https://ntrs.nasa.gov/api/citations/19760019075/downloads/19760019075.pdf#page=20|https://ntrs.nasa.gov/citations/19900008223
+P R|翼梢小翼的低速风洞试验|研究者在低速风洞里测试带小翼的机翼模型，风速约为每秒 30 至 46 米。实测阻力系数的降幅与计算预测处于同一量级。|试验||StudyPR|低速风洞实测曲线 · NASA 报告图 61|https://ntrs.nasa.gov/api/citations/19900008223/downloads/19900008223.pdf#page=105|https://ntrs.nasa.gov/citations/19900008223
 R S|外侧翼尖与内段襟翼|把襟翼装在靠近机身的后缘，把翼梢小翼留在外端。观察这两处翼面各自占了多少空间。
-A S|轻型机放下襟翼后的受力|普林斯顿团队把一架低翼轻型机放进全尺寸风洞，分别改变襟翼偏角与螺旋桨推力。固定推力后，可从报告曲线读出襟翼偏转对整机受力的影响。||||||https://ntrs.nasa.gov/citations/19710022893
+A S|轻型机放下襟翼后的受力|普林斯顿团队把一架低翼轻型机放进全尺寸风洞，分别改变襟翼偏角与螺旋桨推力。固定推力后，可从报告曲线读出襟翼偏转对整机受力的影响。|||StudyAS|轻型机试验对象三视图 · NASA CR-1783 图 1|https://ntrs.nasa.gov/api/citations/19710022893/downloads/19710022893.pdf#page=37|https://ntrs.nasa.gov/citations/19710022893
 C S|细长机翼的内段襟翼|把襟翼放在长翼内段，比较不同长度的襟翼占用多少后缘空间，还剩多少位置能装副翼。
 E S|厚翼里的襟翼接头|画出厚翼后部的截面，给襟翼的转轴和连杆留位置，再画出襟翼放下后的轮廓。
 G S|折叠翼上的襟翼分段|让外翼收起时襟翼保持收拢，检查襟翼分段的位置会不会跨过折叠接头。
-M S|浮筒飞机的襟翼与爬升|加拿大运输安全委员会引用制造商资料指出，在所调查的 DHC-6 浮筒构型上，较大的起飞襟翼偏角会削弱单发爬升能力，程度随重量和环境条件变化。|twinotter|||||https://www.tsb.gc.ca/sites/default/files/rapports-reports/aviation/A94P0215/eng/a94p0215.pdf
-P S|襟翼偏转怎样改变升阻力|NACA 在风洞中转动双缝襟翼，逐次测量升力、阻力和俯仰力矩。报告给出了不同偏角的曲线，可以对照增升时相应的阻力代价。|试验|||||https://ntrs.nasa.gov/citations/19930092793
+M S|浮筒飞机的襟翼与爬升|加拿大运输安全委员会引用制造商资料指出，在所调查的 DHC-6 浮筒构型上，较大的起飞襟翼偏角会削弱单发爬升能力，程度随重量和环境条件变化。|twinotter||StudyMS|加拿大运输安全委员会 · 据调查报告绘制|https://www.tsb.gc.ca/sites/default/files/rapports-reports/aviation/A94P0215/eng/a94p0215.pdf|https://www.tsb.gc.ca/sites/default/files/rapports-reports/aviation/A94P0215/eng/a94p0215.pdf
+P S|襟翼偏转怎样改变升阻力|NACA 在风洞中转动双缝襟翼，逐次测量升力、阻力和俯仰力矩。报告给出了不同偏角的曲线，可以对照增升时相应的阻力代价。|试验||StudyPS|不同偏角的双缝襟翼升力曲线 · NACA 原图|https://ntrs.nasa.gov/api/citations/19930092793/downloads/19930092793.pdf#page=15|https://ntrs.nasa.gov/citations/19930092793
 S T|翼下吊舱与襟翼间隙|在俯视图上标出吊舱与襟翼各占的位置，再用侧视图检查襟翼放下时是否会碰到吊舱支架。
 S U|低速着陆与固定机轮|比较襟翼收起和放下时的机身姿态，分别查看前轮和主轮接地时机尾离地面的距离。
 C T|长翼下排开的吊舱|NASA Helios 在长翼下布置多个吊舱，用来携带机轮、电池或仪器。对照照片找出沿翼分散的吊舱。|helios
@@ -152,21 +152,21 @@ I U|电动飞翼的固定起落架|NASA Helios 采用电动推进和固定起落
 L U|装着电池和机轮的吊舱|Helios 早期试飞使用翼下电池组，固定机轮也装在翼下吊舱上。照片可参考机轮与吊舱的相对位置。|helios
 N U|固定轮和半收起的机轮|NACA 在同一风洞试验中比较固定轮和部分收起的机轮。收起深度相近时，轮子在机翼前缘附近还是更靠后，测得的阻力也有差别。|||GearRig|NACA · 起落架风洞模型，报告 518|https://ntrs.nasa.gov/api/citations/19930091591/downloads/19930091591.pdf#page=5|https://ntrs.nasa.gov/citations/19930091591
 O U|固定轮与滑橇的接地比较|使用相同机身模型，轮流装上固定轮和滑橇，观察它们在硬地和松雪模型上的接触区域。|试验
-P U|外露机轮装整流罩有什么用|NACA 用全尺寸机轮和支柱做风洞试验。合适的轮罩可以明显减小起落架阻力，支柱及其连接处也贡献阻力。|试验|||||https://ntrs.nasa.gov/citations/19930091559
+P U|外露机轮装整流罩有什么用|NACA 用全尺寸机轮和支柱做风洞试验。合适的轮罩可以明显减小起落架阻力，支柱及其连接处也贡献阻力。|试验||StudyPU|NACA TR-485 · 据全尺寸阻力试验数据重绘|https://ntrs.nasa.gov/citations/19930091559|https://ntrs.nasa.gov/citations/19930091559
 D V|后掠翼下的四台发动机|对照 747SP 照片和俯视简图，找出同一侧机翼上的内侧和外侧发动机。比较它们离机身的位置和吊挂空间。||喷气布局|JetWing|NASA 747SP SOFIA · 翼下发动机布局|https://ntrs.nasa.gov/api/citations/20100037184/downloads/20100037184.pdf#page=39
 E V|厚翼内怎样固定发动机吊架|右图给出翼下短舱的外形。要判断增大翼厚能否容下吊架接头，需要比较剖面、翼梁和紧固件的位置；这项布置问题仍待验证。||翼下吊架|JetPylon|NASA 静态试验 · 翼下短舱，照片 C-71-2220|https://ntrs.nasa.gov/api/citations/19760011040/downloads/19760011040.pdf#page=18
 I V|电机怎样给涡扇发动机助力|NASA 与 GE 在地面台架上把电机接入商用涡扇发动机。试验验证了从发动机取电、用电机向转轴送入功率，以及在两根转轴间转移功率。|试验|电机助推|HybridBench|GE Aerospace · 混合电动涡扇试验台，图 4|https://ntrs.nasa.gov/api/citations/20260001809/downloads/CR-20260001809.pdf#page=16|https://ntrs.nasa.gov/citations/20260001809
 N V|喷气客机的机轮收放空间|右图是波音 757 放下主轮时的外观。简图虚线表示设想的收轮位置；实际收轮轨迹和短舱间隙仍需机构图或运动测量核实。||主轮轨迹|JetGear|NASA Boeing 757 · 主轮放下时的外观|https://ntrs.nasa.gov/api/citations/20020045525/downloads/20020045525.pdf#page=77
-P V|风洞里听涡扇喷口的变化|NASA 在低速消声风洞里测试五分之一尺度的涡扇外涵模型，改变喷口出口面积，同时测量风扇性能与噪声。可对照报告中同一转速下的结果。|试验|短舱测力|JetTunnel|NASA 9×15 低速风洞 · 涡扇试验台|https://ntrs.nasa.gov/api/citations/20170006618/downloads/20170006618.pdf#page=3|https://ntrs.nasa.gov/citations/20140004860
+P V|风洞里听涡扇喷口的变化|NASA 在低速消声风洞里测试五分之一尺度的涡扇外涵模型，改变喷口出口面积，同时测量风扇性能与噪声。可对照报告中同一转速下的结果。|试验|短舱测力|StudyPV|风扇模型在风洞中安装 · NASA 图 6a|https://ntrs.nasa.gov/api/citations/20140004860/downloads/20140004860.pdf#page=23|https://ntrs.nasa.gov/citations/20140004860
 T V|翼下试验吊舱里的喷气发动机|NASA 把校准过的喷气发动机装进翼下试验吊舱，轮换三种喷口，在飞越时测噪声和推力。研究者还用地面静态数据检验对飞越噪声的预测。||试验吊舱|UnderwingLab|NASA · 翼下发动机试验平台，图 1|https://ntrs.nasa.gov/api/citations/19730020002/downloads/19730020002.pdf#page=23|https://ntrs.nasa.gov/citations/19730020002
 V W|协和式三角翼喷气客机|Concorde 用带曲线前缘的三角翼，翼下有四台喷气发动机。对照照片和简图，数数每侧有几台。|concorde
-V X|尾翼能挡住多少发动机噪声|NASA 在翼身融合模型的声学试验中评估尾部翼面对发动机噪声的遮蔽，并比较不同布置。右图用 X-48C 展示发动机与双尾翼的相对位置。||双尾翼喷气|JetTwinTail|NASA X-48C · 双喷气发动机和两片倾斜尾翼|https://www.nasa.gov/wp-content/uploads/2020/11/beyond_tube-and-wing_tagged.pdf#page=199|https://ntrs.nasa.gov/citations/20100023399
+V X|尾翼能挡住多少发动机噪声|NASA 在翼身融合模型的声学试验中评估尾部翼面对发动机噪声的遮蔽，并比较不同布置。右图是报告中用于这项研究的声学试验构型。||双尾翼喷气|StudyVX|声学试验模型及尾面 · NASA 图 8|https://ntrs.nasa.gov/api/citations/20100023399/downloads/20100023399.pdf#page=14|https://ntrs.nasa.gov/citations/20100023399
 C W|细长翼和三角翼对照|做面积相同的两副机翼模型，一副细长，一副呈三角形。在相同风速下比较升力与阻力。|试验
 D W|带曲线前缘的后掠三角翼|Concorde 的机翼前缘向后掠，俯视轮廓接近三角形，前缘带曲线。试沿照片里的轮廓找出这条曲线。|concorde
 E W|三角翼的厚翼根|比较两种翼根厚度给机身连接留下的空间，再检查厚度变化会怎样影响整机外形。
 F W|薄三角翼的对照模型|用相同俯视轮廓做两种厚度的三角翼模型，在同一来流条件下比较升力和阻力。|试验
 G W|可收拢的三角翼模型|让三角形机翼的外段绕接头折起，量一量收拢后节省的停放宽度。
-P W|看见三角翼上的前缘涡|研究者在低速风洞中用烟流和激光照亮薄三角翼前缘卷起的空气。观察涡破裂前后，测量发现涡心的流速分布由射流型转为尾流型。|试验|||||https://ntrs.nasa.gov/citations/19860017724
+P W|看见三角翼上的前缘涡|研究者在低速风洞中用烟流和激光照亮薄三角翼前缘卷起的空气。观察涡破裂前后，测量发现涡心的流速分布由射流型转为尾流型。|试验||StudyPW|烟流中的涡破裂 · Payne 与 Nelson 图 13|https://ntrs.nasa.gov/api/citations/19860017724/downloads/19860017724.pdf#page=22|https://ntrs.nasa.gov/citations/19860017724
 Q W|前小翼与三角形主翼|把小翼放在三角形主翼前方。比较小翼前后移动时，机身抬头趋势和两副翼间距怎样变化。
 W X|三角翼与分开的双垂尾|把两个垂尾分别布置在尾部两侧，检查它们与三角翼后缘之间是否留出舵面活动空间。
 W Y|三角翼模型的可调桨叶|给三角翼模型装上可变桨距螺旋桨，保持模型姿态和转速相同，比较两种桨距下的推力。|试验
@@ -181,9 +181,9 @@ X Y|双垂尾附近的桨后气流|在同一模型与转速下改变桨叶角度
 B Y|动力滑翔机的可调桨叶|Stemme S12 的螺旋桨既能调节桨距，也能折进机鼻。照片可观察停桨滑翔时的机鼻轮廓。|stemme
 G Y|折叠和调桨距的两种动作|画出桨叶折向机鼻和绕自身长轴转动的两种轨迹，比较收纳空间和叶片角度如何改变。
 I Y|调桨距时，电机负载怎么变|研究者在电动旋翼台架上改变桨距和转速，同时测推力、转矩和电流。沿同一转速比较，就能看出转动叶片角度对电机负载的影响。|试验||PitchStand|变桨距台架 · Chang 等，图 3，CC BY 4.0|https://www.mdpi.com/1424-8220/20/19/5651#fig_body_display_sensors-20-05651-f003|https://www.mdpi.com/1424-8220/20/19/5651
-J Y|同一副桨转一个角度|变桨距台架试验给出了不同叶片角度和转速下的推力曲面。固定转速，沿桨距方向读图，就能比较同一副桨如何改变推力。|stemme||PitchStand|变桨距台架 · Chang 等，图 3，CC BY 4.0|https://www.mdpi.com/1424-8220/20/19/5651#fig_body_display_sensors-20-05651-f003|https://www.mdpi.com/1424-8220/20/19/5651
+J Y|同一副桨转一个角度|变桨距台架试验给出了不同叶片角度和转速下的推力曲面。固定转速，沿桨距方向读图，就能比较同一副桨如何改变推力。|stemme||StudyJY|桨距、转速与推力 · Chang 等图 4a，CC BY 4.0|https://mdpi-res.com/sensors/sensors-20-05651/article_deploy/html/images/sensors-20-05651-g004a.png|https://www.mdpi.com/1424-8220/20/19/5651
 L Y|蓄电池和可调桨叶的耗电对照|给模型使用相同电池和测试时长，记录两种桨距下的电流和推力，再比较各用了多少电。|试验
 N Y|可变桨距与可收机轮|Stemme S12 同时配有可调桨叶和可收机轮。调桨时叶片绕自身长轴转动，收轮时机轮进入轮舱。型号资料可以核对这两种机构的布置。|stemme
-P Y|风洞里的可变桨距螺旋桨|研究者把可变桨距桨毂安装在风洞支架上，在不同叶片角度与来流条件下测量力和力矩，用实测数据建立螺旋桨气动力模型。|试验||ElectricProp|电推进外形参考 · NASA X-57，Carla Thomas 摄|https://www.nasa.gov/wp-content/uploads/2023/09/june-2023-x-press.pdf#page=4|https://ntrs.nasa.gov/api/citations/20220005627/downloads/Simmons_eVTOL_Prop_Modeling_Aviation22_v04232022.pdf
-S Y|襟翼遇上可变桨距螺旋桨|全尺寸轻型机风洞试验用变桨距产生不同推力，再改变襟翼偏角。比较同一襟翼位置下的正、负推力工况，可读出整机受力的差异。|试验|||||https://ntrs.nasa.gov/citations/19710022893
+P Y|风洞里的可变桨距螺旋桨|研究者把可变桨距桨毂安装在风洞支架上，在不同叶片角度与来流条件下测量力和力矩，用实测数据建立螺旋桨气动力模型。|试验||StudyPY|可调桨距试验桨毂 · NASA 图 3|https://ntrs.nasa.gov/api/citations/20220005627/downloads/Simmons_eVTOL_Prop_Modeling_Aviation22_v04232022.pdf#page=5|https://ntrs.nasa.gov/api/citations/20220005627/downloads/Simmons_eVTOL_Prop_Modeling_Aviation22_v04232022.pdf
+S Y|襟翼遇上可变桨距螺旋桨|全尺寸轻型机风洞试验用变桨距产生不同推力，再改变襟翼偏角。比较同一襟翼位置下的正、负推力工况，可读出整机受力的差异。|试验||StudySY|全尺寸试验气动力曲线 · NASA CR-1783，PDF 第 40 页|https://ntrs.nasa.gov/api/citations/19710022893/downloads/19710022893.pdf#page=40|https://ntrs.nasa.gov/citations/19710022893
 T Y|翼下吊舱与调桨间隙|在简图上标出螺旋桨扫过的范围，再画出翼下吊舱的位置，检查桨叶转动和调角时会不会碰到支架。
