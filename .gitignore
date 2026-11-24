@@ -1,0 +1,9 @@
+.vs/
+obj/
+bin/*
+!bin/Release/
+bin/Release/*
+!bin/Release/航空合成实验室.exe
+*.user
+*.suo
+~$*

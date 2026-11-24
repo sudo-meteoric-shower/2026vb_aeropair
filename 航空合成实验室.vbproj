@@ -1,0 +1,21 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)'==''">Debug</Configuration>
+    <Platform Condition="'$(Platform)'==''">AnyCPU</Platform>
+    <ProjectGuid>{86846113-B47D-44BD-BD39-174EB0662E86}</ProjectGuid>
+    <OutputType>WinExe</OutputType><AssemblyName>航空合成实验室</AssemblyName>
+    <RootNamespace>FlightLab</RootNamespace><StartupObject>FlightLab.Program</StartupObject>
+    <MyType>WindowsFormsWithCustomSubMain</MyType><TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit><OptionStrict>On</OptionStrict>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'"><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType></PropertyGroup>
+  <ItemGroup><Reference Include="System"/><Reference Include="System.Core"/><Reference Include="System.Drawing"/><Reference Include="System.Windows.Forms"/></ItemGroup>
+  <ItemGroup><Import Include="System"/><Import Include="System.Collections.Generic"/><Import Include="System.Drawing"/><Import Include="System.Windows.Forms"/><Import Include="Microsoft.VisualBasic"/></ItemGroup>
+  <ItemGroup><Compile Include="Program.vb"/><Compile Include="Recipes.vb"/><Compile Include="Diagram.vb"/><Compile Include="LabForm.vb"/></ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="资料\组合.txt"><LogicalName>catalog.txt</LogicalName></EmbeddedResource>
+    <EmbeddedResource Include="资料\*.jpg"><LogicalName>%(Filename).jpg</LogicalName></EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets"/>
+</Project>
