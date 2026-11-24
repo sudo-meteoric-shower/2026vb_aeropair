@@ -85,6 +85,28 @@ Public Class Diagram
                 For i As Integer = 52 To 68 Step 8
                     g.DrawLine(Pens.CadetBlue, 12, i, 115, i)
                 Next
+            Case "Q"
+                Shape(g, pen, Brushes.WhiteSmoke, 0, 78, 65, 58, 130, 78, 129, 84, 65, 72, 1, 84)
+                g.FillEllipse(Brushes.WhiteSmoke, 58, 22, 14, 73)
+                g.DrawEllipse(pen, 58, 22, 14, 73)
+                Shape(g, pen, fill, 35, 43, 65, 36, 95, 43, 94, 48, 65, 43, 36, 48)
+            Case "R"
+                Shape(g, pen, Brushes.WhiteSmoke, 7, 68, 118, 61, 125, 69, 13, 85)
+                Shape(g, pen, fill, 118, 62, 108, 27, 115, 26, 127, 69)
+            Case "S"
+                Shape(g, pen, Brushes.WhiteSmoke, 4, 59, 19, 45, 58, 47, 124, 61, 106, 67, 23, 68)
+                Shape(g, pen, fill, 93, 65, 126, 83, 120, 88, 83, 67)
+            Case "T"
+                Shape(g, pen, Brushes.WhiteSmoke, 2, 39, 43, 29, 125, 40, 48, 44, 6, 47)
+                g.DrawLine(pen, 57, 44, 57, 61)
+                g.FillEllipse(fill, 23, 60, 84, 24)
+                g.DrawEllipse(pen, 23, 60, 84, 24)
+            Case "U"
+                Shape(g, pen, Brushes.WhiteSmoke, 22, 27, 106, 27, 112, 32, 28, 38)
+                g.DrawLine(pen, 43, 36, 64, 73)
+                g.DrawLine(pen, 82, 33, 64, 73)
+                g.FillEllipse(Brushes.DarkSlateGray, 48, 60, 32, 32)
+                g.FillEllipse(fill, 58, 70, 12, 12)
         End Select
         g.Restore(state)
         Using labelFont As New Font("Microsoft YaHei UI", 12, FontStyle.Regular, GraphicsUnit.Pixel)
@@ -130,6 +152,19 @@ Public Class Diagram
                 g.FillEllipse(accent, joint - 3, y + 3, 6, 6)
             End If
             If parts.Contains("H") Then g.DrawBezier(edge, x - side * 22, tip, x, tip, x, tip - 10, x + side * 8, tip - 22)
+            If parts.Contains("R") Then Shape(g, edge, accent, x, tip, x - side * 8, tip - 17, x - side * 3, tip - 19, x + side * 4, tip + 7)
+            If parts.Contains("S") Then
+                Dim rootEdge As Integer = 62 + chord
+                Dim edgeSlope As Integer = tip + 7 - rootEdge
+                Dim inner As Integer = rootEdge + edgeSlope * 19 \ span
+                Dim outer As Integer = rootEdge + edgeSlope * 76 \ span
+                Shape(g, edge, accent, 220 + side * 19, inner, 220 + side * 76, outer, 220 + side * 76, outer + 7, 220 + side * 19, inner + 7)
+            End If
+            If parts.Contains("T") Then
+                Dim podX As Integer = 220 + side * 49
+                g.FillEllipse(accent, podX - 5, 70, 10, 31)
+                g.DrawEllipse(edge, podX - 5, 70, 10, 31)
+            End If
             If parts.Contains("K") Then
                 For j As Integer = 1 To 4
                     Dim cx As Integer = 220 + side * (20 + j * 12)
@@ -146,7 +181,7 @@ Public Class Diagram
                 End If
                 If parts.Contains("O") Then g.DrawBezier(edge, gear + side * 7, 83, gear + side * 13, 72, gear + side * 13, 105, gear + side * 13, 132)
             End If
-            If parts.Contains("N") Then
+            If parts.Contains("N") OrElse parts.Contains("U") Then
                 g.DrawLine(edge, 220, 90, 220 + side * 30, 97)
                 g.FillEllipse(Brushes.DarkSlateGray, 216 + side * 30, 89, 8, 16)
             End If
@@ -154,6 +189,7 @@ Public Class Diagram
         Shape(g, edge, Brushes.WhiteSmoke, 220, 126, 258, 141, 258, 147, 220, 140, 182, 147, 182, 141)
         Shape(g, edge, Brushes.WhiteSmoke, 220, 24, 231, 41, 231, 84, 223, 142, 217, 142, 209, 84, 209, 41)
         g.FillEllipse(glass, 213, 41, 14, 24)
+        If parts.Contains("Q") Then Shape(g, edge, accent, 168, 47, 220, 40, 272, 47, 272, 52, 220, 49, 168, 52)
         If parts.Contains("L") Then
             g.FillRectangle(accent, 213, 71, 14, 22)
             g.DrawRectangle(edge, 213, 71, 14, 22)
@@ -237,6 +273,17 @@ Public Class Diagram
                     g.FillEllipse(accent, i, 68, 5, 12)
                     g.DrawLine(edge, i - 6, 68, i + 10, 68)
                 Next
+                Dim parts As String = LeftId & RightId
+                If parts.Contains("T") OrElse parts.Contains("U") Then
+                    For i As Integer = 80 To 360 Step 70
+                        g.FillEllipse(glass, i - 5, 97, 10, 24)
+                        g.DrawEllipse(edge, i - 5, 97, 10, 24)
+                        If parts.Contains("U") Then
+                            g.FillEllipse(Brushes.DarkSlateGray, i - 4, 101, 8, 5)
+                            g.FillEllipse(Brushes.DarkSlateGray, i - 4, 118, 8, 7)
+                        End If
+                    Next
+                End If
             ElseIf Scene = "折叠翼" Then
                 Dim top As Integer = If(Folded, 34, 94)
                 Dim dx As Integer = If(Folded, 14, 98)
@@ -264,6 +311,10 @@ Public Class Diagram
                 g.FillEllipse(glass, 214, 43, 13, 34)
                 g.DrawEllipse(edge, 214, 43, 13, 34)
                 Shape(g, edge, accent, 187, 27, 219, 21, 252, 20, 251, 24, 220, 26, 188, 31)
+                If LeftId = "R" OrElse RightId = "R" Then
+                    Shape(g, edge, accent, 21, 87, 12, 69, 18, 70, 28, 90)
+                    Shape(g, edge, accent, 419, 87, 428, 69, 422, 70, 412, 90)
+                End If
             Else
                 '侧视图中用橙色区分浮筒，用轮廓线表示浮筒支柱。
                 Shape(g, edge, Brushes.WhiteSmoke, 50, 76, 119, 78, 166, 55, 235, 55, 261, 70, 323, 73, 349, 81, 346, 92, 295, 100, 186, 100, 114, 87, 55, 86)
@@ -271,6 +322,9 @@ Public Class Diagram
                 Shape(g, edge, glass, 211, 60, 232, 60, 251, 73, 211, 74)
                 Shape(g, edge, Brushes.WhiteSmoke, 49, 78, 38, 43, 50, 45, 89, 77)
                 Shape(g, edge, Brushes.WhiteSmoke, 157, 57, 207, 45, 282, 44, 313, 49, 230, 58)
+                If Scene = "浮筒与襟翼" Then
+                    Shape(g, edge, accent, 157, 57, 212, 57, 180, 67, 150, 65)
+                End If
                 g.DrawLine(edge, 353, 59, 353, 114)
                 g.DrawLine(edge, 347, 85, 357, 85)
                 g.DrawLine(edge, 169, 99, 193, 126)

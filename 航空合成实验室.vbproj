@@ -14,6 +14,7 @@
   <ItemGroup><Import Include="System"/><Import Include="System.Collections.Generic"/><Import Include="System.Drawing"/><Import Include="System.Windows.Forms"/><Import Include="Microsoft.VisualBasic"/></ItemGroup>
   <ItemGroup><Compile Include="Program.vb"/><Compile Include="Recipes.vb"/><Compile Include="Diagram.vb"/><Compile Include="LabForm.vb"/></ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="资料\部件.txt"><LogicalName>parts.txt</LogicalName></EmbeddedResource>
     <EmbeddedResource Include="资料\组合.txt"><LogicalName>catalog.txt</LogicalName></EmbeddedResource>
     <EmbeddedResource Include="资料\*.jpg"><LogicalName>%(Filename).jpg</LogicalName></EmbeddedResource>
   </ItemGroup>

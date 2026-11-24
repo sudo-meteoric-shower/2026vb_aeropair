@@ -5,6 +5,7 @@ Public Class LabForm
 
     Private ReadOnly cards As New List(Of Button)
     Private ReadOnly groups As New List(Of Label)
+    Private ReadOnly sectionCards As New Dictionary(Of String, List(Of Button))(StringComparer.Ordinal)
     Private ReadOnly tips As New ToolTip()
     Private ReadOnly seen As New List(Of String)
     Private first As String = ""
@@ -30,16 +31,18 @@ Public Class LabForm
         WindowState = FormWindowState.Maximized
         heading = Caption("航空合成实验室", 0, 0, 100, 42, 22, True)
         instructions = Caption("选两件部件，再点右侧的「合成」。", 0, 0, 100, 28, 10)
-        For Each label As String In New String() {"机身", "机翼外形", "机翼接头与翼尖", "动力与能源", "起降与试验"}
-            groups.Add(Caption(label, 0, 0, 100, 24, 10, True))
-        Next
-        For i As Integer = 0 To Parts.Length - 1
-            Dim b As Button = ActionButton(Parts(i), 0, 0, 10, 10)
-            b.Tag = ChrW(65 + i).ToString()
-            b.Name = "part" & CStr(b.Tag)
-            tips.SetToolTip(b, Hints(i))
+        For Each part As PartCard In Parts
+            If Not sectionCards.ContainsKey(part.Section) Then
+                groups.Add(Caption(part.Section, 0, 0, 100, 24, 10, True))
+                sectionCards.Add(part.Section, New List(Of Button))
+            End If
+            Dim b As Button = ActionButton(part.Name, 0, 0, 10, 10)
+            b.Tag = part.Id
+            b.Name = "part" & part.Id
+            tips.SetToolTip(b, part.Hint)
             AddHandler b.Click, AddressOf PartClicked
             cards.Add(b)
+            sectionCards(part.Section).Add(b)
         Next
         selectedLabel = Caption("", 0, 0, 100, 44, 11, True)
         selectedLabel.Name = "selection"
@@ -177,11 +180,15 @@ Public Class LabForm
                     resource = "Helios"
                     canvas.Scene = "太阳能飞翼"
                     credit.Text = "NASA Helios 原型机  ·  摄影 NASA / Nick Galante"
-                Case "float"
+                Case "float", "twinotter"
                     url = "https://vgls.sdp.sirsidynix.net.au/client/search/asset/1016505"
                     resource = "TwinOtter"
-                    canvas.Scene = r.Title
+                    canvas.Scene = "浮筒水上飞机"
                     credit.Text = "DHC-6 Twin Otter  ·  维多利亚州航空报告第 81 号，图版 1"
+                    If r.Kind = "twinotter" Then
+                        url = "https://www.tsb.gc.ca/eng/rapports-reports/aviation/2000/a00p0210/a00p0210.html"
+                        canvas.Scene = "浮筒与襟翼"
+                    End If
                 Case "amph"
                     url = "https://vgls.sdp.sirsidynix.net.au/client/search/asset/1016505"
                     resource = "Cessna"
@@ -203,15 +210,15 @@ Public Class LabForm
                 '推想与试验展示一架相关实机，图注写明可以对照的具体特征。
                 Dim pair As String = r.First & r.Second
                 Select Case True
-                    Case pair.Contains("M"), pair.Contains("N"), pair.Contains("O")
+                    Case pair.Contains("M"), pair.Contains("N"), pair.Contains("O"), pair.Contains("U")
                         resource = "Cessna"
                         credit.Text = "起落装置参考 · Cessna U206G 的浮筒与机轮"
                         url = "https://vgls.sdp.sirsidynix.net.au/client/search/asset/1016505"
-                    Case pair.Contains("D"), pair.Contains("P")
+                    Case pair.Contains("D"), pair.Contains("P"), pair.Contains("Q"), pair.Contains("R")
                         resource = "LongEZ"
                         credit.Text = "气动外形参考 · NASA 层流飞行试验用 Long-EZ"
                         url = "https://ntrs.nasa.gov/api/citations/19840018592/downloads/19840018592.pdf#page=84"
-                    Case pair.Contains("K"), pair.Contains("I"), pair.Contains("L"), pair.Contains("H")
+                    Case pair.Contains("K"), pair.Contains("I"), pair.Contains("L"), pair.Contains("H"), pair.Contains("T")
                         resource = "Helios"
                         credit.Text = "翼面与动力布局参考 · NASA Helios"
                         url = "https://www.nasa.gov/image-article/helios-prototype-flying-wing/"
@@ -281,23 +288,21 @@ Public Class LabForm
     Private Sub Arrange()
         Dim w As Integer = Math.Max(940, ClientSize.Width - If(VerticalScroll.Visible, 18, 0))
         Dim h As Integer = Math.Max(610, ClientSize.Height)
-        Dim left As Integer = CInt(w * 0.44)
+        Dim left As Integer = Math.Max(500, CInt(w * 0.44))
         Dim rx As Integer = left + 28
         Dim rw As Integer = w - rx - 24
         heading.SetBounds(24, 12, left, 46)
         instructions.SetBounds(26, 61, left - 12, 30)
-        Dim y As Integer = 106
-        Dim start As Integer = 0
-        Dim counts As Integer() = {2, 4, 2, 4, 4}
-        For i As Integer = 0 To groups.Count - 1
-            groups(i).SetBounds(26, y, left - 30, 24)
-            Dim cols As Integer = If(left >= 460, 4, 3)
-            Dim cw As Integer = (left - 36) \ cols
-            For j As Integer = 0 To counts(i) - 1
-                cards(start + j).SetBounds(24 + (j Mod cols) * cw, y + 26 + (j \ cols) * 37, cw - 5, 34)
+        Dim y As Integer = 101
+        Const cols As Integer = 4
+        Dim cw As Integer = (left - 36) \ cols
+        For Each section As Label In groups
+            section.SetBounds(26, y, left - 30, 21)
+            Dim entries As List(Of Button) = sectionCards(section.Text)
+            For j As Integer = 0 To entries.Count - 1
+                entries(j).SetBounds(24 + (j Mod cols) * cw, y + 23 + (j \ cols) * 32, cw - 5, 29)
             Next
-            start += counts(i)
-            y += 74 + ((counts(i) - 1) \ cols) * 37
+            y += 61 + ((entries.Count - 1) \ cols) * 32
         Next
         selectedLabel.SetBounds(24, y, left - 28, 38)
         clear.SetBounds(24, y + 42, 105, 34)
