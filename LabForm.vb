@@ -170,6 +170,16 @@ Public Class LabForm
             Dim resource As String = ""
             Dim url As String = ""
             Select Case r.Kind
+                Case "concorde"
+                    resource = "Concorde"
+                    canvas.Scene = "三角翼客机"
+                    credit.Text = "Concorde  ·  NASA 技术报告图 1.7"
+                    url = "https://ntrs.nasa.gov/api/citations/20240008586/downloads/TM-20240008586.pdf#page=28"
+                Case "ercoupe"
+                    resource = "Ercoupe"
+                    canvas.Scene = "双垂尾轻型机"
+                    credit.Text = "Ercoupe  ·  NACA 试验照片，报告图 8(a)"
+                    url = "https://ntrs.nasa.gov/api/citations/19930084982/downloads/19930084982.pdf#page=26"
                 Case "longez"
                     resource = "LongEZ"
                     canvas.Scene = "后掠推式"
@@ -210,6 +220,18 @@ Public Class LabForm
                 '推想与试验展示一架相关实机，图注写明可以对照的具体特征。
                 Dim pair As String = r.First & r.Second
                 Select Case True
+                    Case pair.Contains("V"), pair.Contains("W")
+                        resource = "Concorde"
+                        credit.Text = "喷气动力与三角翼参考 · Concorde"
+                        url = "https://ntrs.nasa.gov/api/citations/20240008586/downloads/TM-20240008586.pdf#page=28"
+                    Case pair.Contains("X")
+                        resource = "Ercoupe"
+                        credit.Text = "双垂尾布置参考 · Ercoupe"
+                        url = "https://ntrs.nasa.gov/api/citations/19930084982/downloads/19930084982.pdf#page=26"
+                    Case pair.Contains("Y")
+                        resource = "Stemme"
+                        credit.Text = "可变桨距参考 · Stemme S12"
+                        url = "https://www.stemme.com/s12.html"
                     Case pair.Contains("M"), pair.Contains("N"), pair.Contains("O"), pair.Contains("U")
                         resource = "Cessna"
                         credit.Text = "起落装置参考 · Cessna U206G 的浮筒与机轮"

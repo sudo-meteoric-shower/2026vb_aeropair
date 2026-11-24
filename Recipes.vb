@@ -15,7 +15,7 @@ Public Class Recipe
     Public ReadOnly Property Category As String
         Get
             Select Case Kind
-                Case "float", "amph", "helios", "stemme", "longez", "twinotter"
+                Case "float", "amph", "helios", "stemme", "longez", "twinotter", "concorde", "ercoupe"
                     Return "真实案例"
                 Case "试验"
                     Return "试验设想"

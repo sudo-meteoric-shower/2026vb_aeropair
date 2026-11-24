@@ -107,6 +107,25 @@ Public Class Diagram
                 g.DrawLine(pen, 82, 33, 64, 73)
                 g.FillEllipse(Brushes.DarkSlateGray, 48, 60, 32, 32)
                 g.FillEllipse(fill, 58, 70, 12, 12)
+            Case "V"
+                Shape(g, pen, Brushes.WhiteSmoke, 15, 44, 95, 46, 108, 55, 108, 72, 95, 80, 15, 82)
+                g.FillEllipse(fill, 8, 44, 19, 38)
+                g.DrawEllipse(pen, 8, 44, 19, 38)
+                For y As Integer = 58 To 70 Step 6
+                    g.DrawLine(pen, 108, y, 129, y)
+                Next
+            Case "W"
+                Shape(g, pen, Brushes.WhiteSmoke, 65, 27, 1, 86, 129, 86)
+                g.DrawLine(pen, 65, 18, 65, 98)
+            Case "X"
+                Shape(g, pen, Brushes.WhiteSmoke, 4, 60, 126, 60, 117, 75, 13, 75)
+                Shape(g, pen, fill, 9, 69, 14, 33, 25, 29, 25, 70)
+                Shape(g, pen, fill, 104, 70, 105, 29, 116, 33, 120, 69)
+            Case "Y"
+                Shape(g, pen, fill, 12, 70, 112, 44, 120, 55, 20, 80)
+                g.DrawLine(pen, 10, 63, 122, 63)
+                g.DrawArc(pen, 51, 43, 29, 36, 210, 250)
+                Shape(g, pen, Brushes.DarkSlateGray, 65, 76, 72, 82, 75, 73)
         End Select
         g.Restore(state)
         Using labelFont As New Font("Microsoft YaHei UI", 12, FontStyle.Regular, GraphicsUnit.Pixel)
@@ -132,9 +151,10 @@ Public Class Diagram
     '构型以俯视图绘制。选中的部件决定翼形、动力、起落装置和试验环境。
     Private Sub DrawLayout(g As Graphics, edge As Pen, accent As Brush, glass As Brush)
         Dim parts As String = LeftId & RightId
+        Dim delta As Boolean = parts.Contains("W")
         Dim span As Integer = If(parts.Contains("C") OrElse parts.Contains("B"), 164, 125)
-        Dim tip As Integer = If(parts.Contains("D"), 118, 82)
-        Dim chord As Integer = If(parts.Contains("E"), 27, If(parts.Contains("F"), 12, 20))
+        Dim tip As Integer = If(delta, 105, If(parts.Contains("D"), 118, 82))
+        Dim chord As Integer = If(delta, 57, If(parts.Contains("E"), 27, If(parts.Contains("F"), 12, 20)))
         If parts.Contains("P") Then
             g.DrawRectangle(Pens.CadetBlue, 24, 14, 392, 151)
             For x As Integer = 46 To 398 Step 32
@@ -187,6 +207,10 @@ Public Class Diagram
             End If
         Next
         Shape(g, edge, Brushes.WhiteSmoke, 220, 126, 258, 141, 258, 147, 220, 140, 182, 147, 182, 141)
+        If parts.Contains("X") Then
+            Shape(g, edge, accent, 182, 144, 183, 125, 190, 121, 190, 144)
+            Shape(g, edge, accent, 258, 144, 257, 125, 250, 121, 250, 144)
+        End If
         Shape(g, edge, Brushes.WhiteSmoke, 220, 24, 231, 41, 231, 84, 223, 142, 217, 142, 209, 84, 209, 41)
         g.FillEllipse(glass, 213, 41, 14, 24)
         If parts.Contains("Q") Then Shape(g, edge, accent, 168, 47, 220, 40, 272, 47, 272, 52, 220, 49, 168, 52)
@@ -195,7 +219,15 @@ Public Class Diagram
             g.DrawRectangle(edge, 213, 71, 14, 22)
         End If
         If parts.Contains("I") Then g.FillRectangle(accent, 213, 27, 14, 13)
-        If parts.Contains("J") Then Shape(g, edge, accent, 183, 27, 217, 20, 258, 18, 256, 23, 224, 25, 185, 31)
+        If parts.Contains("J") OrElse parts.Contains("Y") Then Shape(g, edge, accent, 183, 27, 217, 20, 258, 18, 256, 23, 224, 25, 185, 31)
+        If parts.Contains("V") Then
+            For Each x As Integer In New Integer() {188, 239}
+                g.FillRectangle(glass, x, 82, 13, 38)
+                g.DrawRectangle(edge, x, 82, 13, 38)
+                g.DrawLine(edge, x + 4, 122, x + 4, 131)
+                g.DrawLine(edge, x + 9, 122, x + 9, 131)
+            Next
+        End If
     End Sub
 
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
@@ -224,6 +256,35 @@ Public Class Diagram
                     g.DrawLine(edge, 220, 75, 220, 93)
                     DrawPart(g, RightId, 273, edge, accent)
                 End If
+            ElseIf Scene = "三角翼客机" Then
+                For Each side As Integer In New Integer() {-1, 1}
+                    Using wing As New GraphicsPath()
+                        wing.AddBezier(220, 43, 220 + side * 16, 70, 220 + side * 53, 94, 220 + side * 98, 132)
+                        wing.AddLine(220 + side * 98, 132, 220, 119)
+                        wing.CloseFigure()
+                        g.FillPath(Brushes.WhiteSmoke, wing)
+                        g.DrawPath(edge, wing)
+                    End Using
+                    For j As Integer = 0 To 1
+                        Dim x As Integer = 220 + side * (24 + j * 10)
+                        g.FillRectangle(accent, x - 4, 101, 8, 31)
+                        g.DrawRectangle(edge, x - 4, 101, 8, 31)
+                    Next
+                Next
+                Shape(g, edge, Brushes.WhiteSmoke, 220, 10, 228, 43, 229, 117, 220, 165, 211, 117, 212, 43)
+                g.FillEllipse(glass, 215, 30, 10, 10)
+            ElseIf Scene = "双垂尾轻型机" Then
+                Shape(g, edge, Brushes.WhiteSmoke, 105, 80, 220, 67, 335, 80, 335, 93, 220, 89, 105, 93)
+                Shape(g, edge, Brushes.WhiteSmoke, 171, 128, 220, 117, 269, 128, 269, 138, 220, 135, 171, 138)
+                Shape(g, edge, accent, 171, 135, 172, 107, 181, 103, 181, 136)
+                Shape(g, edge, accent, 269, 135, 268, 107, 259, 103, 259, 136)
+                Shape(g, edge, Brushes.WhiteSmoke, 220, 35, 232, 49, 230, 92, 222, 139, 218, 139, 210, 92, 208, 49)
+                g.FillEllipse(glass, 213, 50, 14, 23)
+                Shape(g, edge, accent, 195, 38, 219, 32, 245, 28, 245, 33, 221, 37, 195, 43)
+                For Each x As Integer In New Integer() {201, 232}
+                    g.FillEllipse(Brushes.DarkSlateGray, x, 88, 7, 13)
+                Next
+                g.FillEllipse(Brushes.DarkSlateGray, 218, 42, 4, 8)
             ElseIf Scene = "后掠推式" Then
                 '机鼻朝上，前翼、后掠主翼和尾推桨按实际相对位置布置。
                 Shape(g, edge, Brushes.WhiteSmoke, 220, 75, 379, 124, 380, 136, 227, 107, 213, 107, 60, 136, 61, 124)
@@ -314,6 +375,12 @@ Public Class Diagram
                 If LeftId = "R" OrElse RightId = "R" Then
                     Shape(g, edge, accent, 21, 87, 12, 69, 18, 70, 28, 90)
                     Shape(g, edge, accent, 419, 87, 428, 69, 422, 70, 412, 90)
+                End If
+                If LeftId = "Y" OrElse RightId = "Y" Then
+                    Shape(g, edge, accent, 281, 43, 337, 25, 342, 31, 286, 49)
+                    g.DrawLine(edge, 278, 37, 346, 37)
+                    g.DrawArc(edge, 299, 21, 24, 31, 215, 240)
+                    Shape(g, edge, Brushes.DarkSlateGray, 309, 49, 315, 53, 318, 46)
                 End If
             Else
                 '侧视图中用橙色区分浮筒，用轮廓线表示浮筒支柱。
