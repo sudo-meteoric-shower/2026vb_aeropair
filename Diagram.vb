@@ -230,6 +230,117 @@ Public Class Diagram
         End If
     End Sub
 
+    Private Sub DrawJetStudy(g As Graphics, edge As Pen, accent As Brush, glass As Brush)
+        Using labelFont As New Font("Microsoft YaHei UI", 15, GraphicsUnit.Pixel),
+              flow As New Pen(Color.CadetBlue, 2),
+              arrow As New AdjustableArrowCap(4, 5),
+              hidden As New Pen(Color.CadetBlue, 2)
+            flow.CustomEndCap = arrow
+            hidden.DashStyle = DashStyle.Dash
+            Select Case Scene
+                Case "喷气布局"
+                    Shape(g, edge, Brushes.WhiteSmoke, 220, 58, 50, 99, 56, 113, 220, 91, 384, 113, 390, 99)
+                    Shape(g, edge, Brushes.WhiteSmoke, 220, 123, 155, 142, 160, 151, 220, 143, 280, 151, 285, 142)
+                    g.FillEllipse(Brushes.WhiteSmoke, 208, 20, 24, 130)
+                    g.DrawEllipse(edge, 208, 20, 24, 130)
+                    For Each x As Integer In New Integer() {104, 160, 280, 336}
+                        g.FillEllipse(accent, x - 10, 76, 20, 46)
+                        g.DrawEllipse(edge, x - 10, 76, 20, 46)
+                    Next
+                    g.DrawString("内侧发动机", labelFont, Brushes.DarkSlateGray, 123, 139)
+                    g.DrawString("外侧发动机", labelFont, Brushes.DarkSlateGray, 302, 139)
+                    g.DrawLine(flow, 154, 137, 160, 117)
+                    g.DrawLine(flow, 334, 137, 336, 117)
+                Case "翼下吊架"
+                    Using section As New GraphicsPath()
+                        section.AddBezier(56, 64, 51, 24, 151, 24, 383, 62)
+                        section.AddBezier(383, 62, 256, 64, 70, 92, 56, 64)
+                        g.FillPath(Brushes.WhiteSmoke, section)
+                        g.DrawPath(edge, section)
+                    End Using
+                    g.FillRectangle(glass, 151, 51, 13, 22)
+                    g.DrawRectangle(edge, 151, 51, 13, 22)
+                    Shape(g, edge, accent, 155, 72, 168, 70, 196, 104, 152, 104)
+                    g.FillEllipse(Brushes.WhiteSmoke, 92, 98, 172, 54)
+                    g.DrawEllipse(edge, 92, 98, 172, 54)
+                    g.DrawEllipse(edge, 96, 102, 26, 46)
+                    g.DrawLine(flow, 298, 91, 182, 89)
+                    g.DrawString("机翼剖面", labelFont, Brushes.DarkSlateGray, 100, 10)
+                    g.DrawString("吊架", labelFont, Brushes.DarkSlateGray, 304, 80)
+                    g.DrawString("发动机短舱", labelFont, Brushes.DarkSlateGray, 139, 115)
+                Case "两种动力"
+                    g.DrawLine(hidden, 220, 29, 220, 155)
+                    g.FillRectangle(glass, 82, 67, 68, 41)
+                    g.DrawRectangle(edge, 82, 67, 68, 41)
+                    g.DrawLine(edge, 65, 88, 82, 88)
+                    Shape(g, edge, accent, 64, 88, 57, 49, 65, 45, 72, 87, 78, 125, 70, 129)
+                    For y As Integer = 71 To 105 Step 17
+                        g.DrawLine(flow, 157, y, 193, y)
+                        g.DrawLine(flow, 364, y, 410, y)
+                    Next
+                    Shape(g, edge, Brushes.WhiteSmoke, 259, 59, 351, 70, 363, 77, 363, 101, 351, 108, 259, 118)
+                    g.DrawEllipse(edge, 250, 59, 18, 59)
+                    g.DrawString("电动螺旋桨", labelFont, Brushes.DarkSlateGray, 73, 138)
+                    g.DrawString("喷气发动机", labelFont, Brushes.DarkSlateGray, 267, 138)
+                Case "主轮轨迹"
+                    Shape(g, edge, Brushes.WhiteSmoke, 37, 65, 220, 75, 403, 65, 403, 76, 220, 88, 37, 76)
+                    g.FillEllipse(Brushes.WhiteSmoke, 194, 44, 52, 56)
+                    g.DrawEllipse(edge, 194, 44, 52, 56)
+                    For Each side As Integer In New Integer() {-1, 1}
+                        Dim engine As Integer = 220 + side * 128
+                        g.DrawLine(edge, engine, 72, engine, 89)
+                        g.FillEllipse(glass, engine - 19, 83, 38, 38)
+                        g.DrawEllipse(edge, engine - 19, 83, 38, 38)
+                        g.DrawEllipse(edge, engine - 11, 91, 22, 22)
+                        Dim wheel As Integer = 220 + side * 56
+                        Dim stowed As Integer = 220 + side * 32
+                        g.DrawLine(edge, wheel, 79, wheel, 139)
+                        g.FillEllipse(accent, wheel - 8, 128, 16, 27)
+                        g.DrawEllipse(edge, wheel - 8, 128, 16, 27)
+                        g.DrawEllipse(hidden, stowed - 12, 81, 24, 11)
+                        g.DrawArc(flow, Math.Min(wheel, stowed) - 17, 85, 47, 63, If(side < 0, 113, 37), If(side < 0, -105, -105))
+                    Next
+                    g.DrawString("发动机", labelFont, Brushes.DarkSlateGray, 66, 130)
+                    g.DrawString("主轮", labelFont, Brushes.DarkSlateGray, 203, 142)
+                    g.DrawString("轮舱", labelFont, Brushes.DarkSlateGray, 205, 18)
+                Case "短舱测力"
+                    g.DrawRectangle(edge, 25, 24, 390, 132)
+                    For y As Integer = 46 To 132 Step 22
+                        g.DrawLine(flow, 41, y, 127, y)
+                        g.DrawLine(flow, 315, y, 398, y)
+                    Next
+                    g.FillEllipse(Brushes.WhiteSmoke, 141, 55, 155, 61)
+                    g.DrawEllipse(edge, 141, 55, 155, 61)
+                    g.DrawEllipse(edge, 145, 61, 24, 49)
+                    Shape(g, edge, accent, 211, 154, 213, 116, 228, 110, 228, 154)
+                    g.DrawString("短舱模型", labelFont, Brushes.DarkSlateGray, 180, 75)
+                Case "机腹吊舱"
+                    Shape(g, edge, Brushes.WhiteSmoke, 43, 84, 75, 65, 285, 65, 327, 58, 358, 44, 369, 48, 344, 78, 308, 91, 72, 93)
+                    Shape(g, edge, Brushes.WhiteSmoke, 318, 62, 339, 25, 351, 25, 349, 60)
+                    g.FillEllipse(glass, 251, 57, 64, 23)
+                    g.DrawEllipse(edge, 251, 57, 64, 23)
+                    Shape(g, edge, accent, 146, 92, 229, 92, 235, 105, 223, 116, 156, 116, 141, 107)
+                    g.DrawLine(flow, 282, 36, 283, 54)
+                    g.DrawLine(flow, 184, 142, 184, 118)
+                    g.DrawString("尾部发动机", labelFont, Brushes.DarkSlateGray, 244, 16)
+                    g.DrawString("机腹仪器舱", labelFont, Brushes.DarkSlateGray, 149, 147)
+                Case "双尾翼喷气"
+                    Shape(g, edge, Brushes.WhiteSmoke, 220, 32, 239, 44, 390, 112, 377, 126, 290, 112, 267, 137, 173, 137, 150, 112, 63, 126, 50, 112, 201, 44)
+                    For Each x As Integer In New Integer() {199, 225}
+                        g.FillEllipse(glass, x, 73, 16, 59)
+                        g.DrawEllipse(edge, x, 73, 16, 59)
+                        g.DrawLine(flow, x + 8, 133, x + 8, 156)
+                    Next
+                    Shape(g, edge, accent, 174, 90, 188, 100, 188, 135, 170, 131)
+                    Shape(g, edge, accent, 266, 90, 252, 100, 252, 135, 270, 131)
+                    g.DrawString("尾翼", labelFont, Brushes.DarkSlateGray, 109, 142)
+                    g.DrawLine(flow, 146, 149, 174, 128)
+                    g.DrawString("发动机", labelFont, Brushes.DarkSlateGray, 271, 52)
+                    g.DrawLine(flow, 270, 67, 234, 83)
+            End Select
+        End Using
+    End Sub
+
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
         MyBase.OnPaint(e)
         Dim g As Graphics = e.Graphics
@@ -256,6 +367,9 @@ Public Class Diagram
                     g.DrawLine(edge, 220, 75, 220, 93)
                     DrawPart(g, RightId, 273, edge, accent)
                 End If
+            ElseIf Scene = "喷气布局" OrElse Scene = "翼下吊架" OrElse Scene = "两种动力" OrElse
+                   Scene = "主轮轨迹" OrElse Scene = "短舱测力" OrElse Scene = "机腹吊舱" OrElse Scene = "双尾翼喷气" Then
+                DrawJetStudy(g, edge, accent, glass)
             ElseIf Scene = "三角翼客机" Then
                 For Each side As Integer In New Integer() {-1, 1}
                     Using wing As New GraphicsPath()

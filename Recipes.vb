@@ -7,6 +7,10 @@ Public Class Recipe
     Public Title As String
     Public Detail As String
     Public Kind As String
+    Public Illustration As String
+    Public Photo As String
+    Public PhotoCredit As String
+    Public PhotoSource As String
 
     Public Function Fits(a As String, b As String) As Boolean
         Return (a = First AndAlso b = Second) OrElse (a = Second AndAlso b = First)
@@ -52,7 +56,14 @@ Public Module Catalog
             While Not reader.EndOfStream
                 Dim columns As String() = reader.ReadLine().Split("|"c)
                 Dim pair As String() = columns(0).Split(" "c)
-                Rules.Add(New Recipe With {.First = pair(0), .Second = pair(1), .Title = columns(1), .Detail = columns(2), .Kind = If(columns.Length > 3, columns(columns.Length - 1), "")})
+                Rules.Add(New Recipe With {
+                    .First = pair(0), .Second = pair(1), .Title = columns(1), .Detail = columns(2),
+                    .Kind = If(columns.Length > 3, columns(3), ""),
+                    .Illustration = If(columns.Length > 4, columns(4), ""),
+                    .Photo = If(columns.Length > 5, columns(5), ""),
+                    .PhotoCredit = If(columns.Length > 6, columns(6), ""),
+                    .PhotoSource = If(columns.Length > 7, columns(7), "")
+                })
             End While
         End Using
     End Sub

@@ -216,11 +216,17 @@ Public Class LabForm
                 Case "试验"
                     If (first = "P" OrElse second = "P") AndAlso (first = "F" OrElse second = "F" OrElse first = "E" OrElse second = "E") Then canvas.Scene = "翼型风洞试验"
             End Select
+            If r.Illustration <> "" Then canvas.Scene = r.Illustration
+            If r.Photo <> "" Then
+                resource = r.Photo
+                credit.Text = r.PhotoCredit
+                url = r.PhotoSource
+            End If
             If resource = "" Then
                 '推想与试验展示一架相关实机，图注写明可以对照的具体特征。
                 Dim pair As String = r.First & r.Second
                 Select Case True
-                    Case pair.Contains("V"), pair.Contains("W")
+                    Case pair.Contains("W")
                         resource = "Concorde"
                         credit.Text = "喷气动力与三角翼参考 · Concorde"
                         url = "https://ntrs.nasa.gov/api/citations/20240008586/downloads/TM-20240008586.pdf#page=28"
@@ -251,7 +257,7 @@ Public Class LabForm
                 End Select
                 source.Text = "参考机型 ↗"
             ElseIf url <> "" Then
-                source.Text = "案例出处 ↗"
+                source.Text = If(r.Category = "真实案例", "案例出处 ↗", "参考资料 ↗")
             End If
             source.Tag = url
             source.Visible = url <> ""
