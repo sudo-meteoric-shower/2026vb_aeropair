@@ -11,6 +11,7 @@ Public Class Recipe
     Public Photo As String
     Public PhotoCredit As String
     Public PhotoSource As String
+    Public StudySource As String
 
     Public Function Fits(a As String, b As String) As Boolean
         Return (a = First AndAlso b = Second) OrElse (a = Second AndAlso b = First)
@@ -18,9 +19,10 @@ Public Class Recipe
 
     Public ReadOnly Property Category As String
         Get
+            If StudySource <> "" Then Return "研究案例"
             Select Case Kind
                 Case "float", "amph", "helios", "stemme", "longez", "twinotter", "concorde", "ercoupe"
-                    Return "真实案例"
+                    Return "构型观察"
                 Case "试验"
                     Return "试验设想"
                 Case Else
@@ -62,7 +64,8 @@ Public Module Catalog
                     .Illustration = If(columns.Length > 4, columns(4), ""),
                     .Photo = If(columns.Length > 5, columns(5), ""),
                     .PhotoCredit = If(columns.Length > 6, columns(6), ""),
-                    .PhotoSource = If(columns.Length > 7, columns(7), "")
+                    .PhotoSource = If(columns.Length > 7, columns(7), ""),
+                    .StudySource = If(columns.Length > 8, columns(8), "")
                 })
             End While
         End Using

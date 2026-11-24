@@ -55,16 +55,11 @@ Public Class LabForm
         photo = New PictureBox With {.Name = "photo", .SizeMode = PictureBoxSizeMode.Zoom, .BackColor = Color.FromArgb(233, 238, 234), .Cursor = Cursors.Hand}
         Controls.AddRange(New Control() {canvas, photo})
         AddHandler photo.Click, AddressOf ZoomPhoto
+        tips.SetToolTip(photo, "点击放大并查看配图出处")
         credit = Caption("", 0, 0, 100, 50, 9)
         source.LinkColor = Teal
         Controls.Add(source)
-        AddHandler source.LinkClicked, Sub()
-                                           Try
-                                               System.Diagnostics.Process.Start(CStr(source.Tag))
-                                           Catch ex As System.ComponentModel.Win32Exception
-                                               MsgBox(CStr(source.Tag), MsgBoxStyle.Information, "资料网址")
-                                           End Try
-                                       End Sub
+        AddHandler source.LinkClicked, AddressOf OpenSource
         synthesize = ActionButton("合成", 0, 0, 135, 42)
         synthesize.Name = "synthesize"
         synthesize.BackColor = Teal
@@ -144,6 +139,8 @@ Public Class LabForm
         canvas.RightId = second
         credit.Text = ""
         source.Visible = False
+        source.Tag = Nothing
+        photo.Tag = Nothing
         If second <> "" AndAlso Not revealed Then
             resultType.Text = "已选部件"
             resultTitle.Text = PartName(first) & " ＋ " & PartName(second)
@@ -196,7 +193,6 @@ Public Class LabForm
                     canvas.Scene = "浮筒水上飞机"
                     credit.Text = "DHC-6 Twin Otter  ·  维多利亚州航空报告第 81 号，图版 1"
                     If r.Kind = "twinotter" Then
-                        url = "https://www.tsb.gc.ca/eng/rapports-reports/aviation/2000/a00p0210/a00p0210.html"
                         canvas.Scene = "浮筒与襟翼"
                     End If
                 Case "amph"
@@ -255,12 +251,18 @@ Public Class LabForm
                         credit.Text = "机翼与机身布局参考 · Stemme S12"
                         url = "https://www.stemme.com/s12.html"
                 End Select
-                source.Text = "参考机型 ↗"
-            ElseIf url <> "" Then
-                source.Text = If(r.Category = "真实案例", "案例出处 ↗", "参考资料 ↗")
             End If
-            source.Tag = url
-            source.Visible = url <> ""
+            photo.Tag = url
+            If r.StudySource <> "" Then
+                If r.Photo = "" AndAlso Not credit.Text.Contains("参考") Then credit.Text = "机型参考 · " & credit.Text
+                source.Text = "研究原文 ↗"
+                source.Tag = r.StudySource
+                source.Visible = True
+            ElseIf r.Category = "构型观察" AndAlso url <> "" Then
+                source.Text = "构型出处 ↗"
+                source.Tag = url
+                source.Visible = True
+            End If
             If resource <> "" Then
                 Using stream As IO.Stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource & ".jpg")
                     If stream IsNot Nothing Then
@@ -304,8 +306,20 @@ Public Class LabForm
         If photo.Image Is Nothing Then Return
         Using viewer As New Form With {.Text = credit.Text, .StartPosition = FormStartPosition.CenterParent, .ClientSize = New Size(820, 500)}
             viewer.Controls.Add(New PictureBox With {.Image = photo.Image, .SizeMode = PictureBoxSizeMode.Zoom, .Dock = DockStyle.Fill})
+            Dim origin As New LinkLabel With {.Text = "配图出处 ↗", .Tag = photo.Tag, .Dock = DockStyle.Bottom, .Height = 32, .TextAlign = ContentAlignment.MiddleCenter, .LinkColor = Teal}
+            AddHandler origin.LinkClicked, AddressOf OpenSource
+            viewer.Controls.Add(origin)
             viewer.ShowDialog(Me)
         End Using
+    End Sub
+
+    Private Sub OpenSource(sender As Object, e As LinkLabelLinkClickedEventArgs)
+        Dim address As String = CStr(DirectCast(sender, LinkLabel).Tag)
+        Try
+            System.Diagnostics.Process.Start(address)
+        Catch ex As System.ComponentModel.Win32Exception
+            MsgBox(address, MsgBoxStyle.Information, "资料网址")
+        End Try
     End Sub
 
     Protected Overrides Sub OnResize(e As EventArgs)

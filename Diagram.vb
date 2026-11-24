@@ -268,20 +268,17 @@ Public Class Diagram
                     g.DrawString("机翼剖面", labelFont, Brushes.DarkSlateGray, 100, 10)
                     g.DrawString("吊架", labelFont, Brushes.DarkSlateGray, 304, 80)
                     g.DrawString("发动机短舱", labelFont, Brushes.DarkSlateGray, 139, 115)
-                Case "两种动力"
-                    g.DrawLine(hidden, 220, 29, 220, 155)
-                    g.FillRectangle(glass, 82, 67, 68, 41)
-                    g.DrawRectangle(edge, 82, 67, 68, 41)
-                    g.DrawLine(edge, 65, 88, 82, 88)
-                    Shape(g, edge, accent, 64, 88, 57, 49, 65, 45, 72, 87, 78, 125, 70, 129)
-                    For y As Integer = 71 To 105 Step 17
-                        g.DrawLine(flow, 157, y, 193, y)
-                        g.DrawLine(flow, 364, y, 410, y)
-                    Next
-                    Shape(g, edge, Brushes.WhiteSmoke, 259, 59, 351, 70, 363, 77, 363, 101, 351, 108, 259, 118)
-                    g.DrawEllipse(edge, 250, 59, 18, 59)
-                    g.DrawString("电动螺旋桨", labelFont, Brushes.DarkSlateGray, 73, 138)
-                    g.DrawString("喷气发动机", labelFont, Brushes.DarkSlateGray, 267, 138)
+                Case "电机助推"
+                    Shape(g, edge, Brushes.WhiteSmoke, 148, 44, 300, 56, 358, 71, 358, 115, 299, 125, 148, 138)
+                    g.DrawEllipse(edge, 130, 44, 36, 94)
+                    g.DrawLine(edge, 149, 93, 334, 93)
+                    g.FillRectangle(accent, 216, 73, 62, 40)
+                    g.DrawRectangle(edge, 216, 73, 62, 40)
+                    g.DrawString("电机", labelFont, Brushes.DarkSlateGray, 229, 82)
+                    g.DrawLine(flow, 240, 31, 240, 69)
+                    g.DrawLine(flow, 257, 70, 257, 32)
+                    g.DrawString("电能进出", labelFont, Brushes.DarkSlateGray, 219, 10)
+                    g.DrawString("发动机转轴", labelFont, Brushes.DarkSlateGray, 278, 144)
                 Case "主轮轨迹"
                     Shape(g, edge, Brushes.WhiteSmoke, 37, 65, 220, 75, 403, 65, 403, 76, 220, 88, 37, 76)
                     g.FillEllipse(Brushes.WhiteSmoke, 194, 44, 52, 56)
@@ -314,16 +311,16 @@ Public Class Diagram
                     g.DrawEllipse(edge, 145, 61, 24, 49)
                     Shape(g, edge, accent, 211, 154, 213, 116, 228, 110, 228, 154)
                     g.DrawString("短舱模型", labelFont, Brushes.DarkSlateGray, 180, 75)
-                Case "机腹吊舱"
-                    Shape(g, edge, Brushes.WhiteSmoke, 43, 84, 75, 65, 285, 65, 327, 58, 358, 44, 369, 48, 344, 78, 308, 91, 72, 93)
-                    Shape(g, edge, Brushes.WhiteSmoke, 318, 62, 339, 25, 351, 25, 349, 60)
-                    g.FillEllipse(glass, 251, 57, 64, 23)
-                    g.DrawEllipse(edge, 251, 57, 64, 23)
-                    Shape(g, edge, accent, 146, 92, 229, 92, 235, 105, 223, 116, 156, 116, 141, 107)
-                    g.DrawLine(flow, 282, 36, 283, 54)
-                    g.DrawLine(flow, 184, 142, 184, 118)
-                    g.DrawString("尾部发动机", labelFont, Brushes.DarkSlateGray, 244, 16)
-                    g.DrawString("机腹仪器舱", labelFont, Brushes.DarkSlateGray, 149, 147)
+                Case "试验吊舱"
+                    Shape(g, edge, Brushes.WhiteSmoke, 79, 53, 137, 41, 354, 54, 154, 65, 82, 64)
+                    Shape(g, edge, glass, 172, 64, 190, 63, 206, 83, 169, 83)
+                    Shape(g, edge, Brushes.WhiteSmoke, 100, 83, 245, 83, 291, 92, 291, 111, 244, 119, 100, 119)
+                    g.DrawEllipse(edge, 91, 83, 18, 36)
+                    g.FillRectangle(accent, 158, 92, 69, 17)
+                    g.DrawLine(flow, 303, 101, 362, 101)
+                    g.DrawString("翼下试验吊舱", labelFont, Brushes.DarkSlateGray, 114, 16)
+                    g.DrawString("发动机", labelFont, Brushes.DarkSlateGray, 169, 134)
+                    g.DrawString("喷口", labelFont, Brushes.DarkSlateGray, 277, 131)
                 Case "双尾翼喷气"
                     Shape(g, edge, Brushes.WhiteSmoke, 220, 32, 239, 44, 390, 112, 377, 126, 290, 112, 267, 137, 173, 137, 150, 112, 63, 126, 50, 112, 201, 44)
                     For Each x As Integer In New Integer() {199, 225}
@@ -367,8 +364,8 @@ Public Class Diagram
                     g.DrawLine(edge, 220, 75, 220, 93)
                     DrawPart(g, RightId, 273, edge, accent)
                 End If
-            ElseIf Scene = "喷气布局" OrElse Scene = "翼下吊架" OrElse Scene = "两种动力" OrElse
-                   Scene = "主轮轨迹" OrElse Scene = "短舱测力" OrElse Scene = "机腹吊舱" OrElse Scene = "双尾翼喷气" Then
+            ElseIf Scene = "喷气布局" OrElse Scene = "翼下吊架" OrElse Scene = "电机助推" OrElse
+                   Scene = "主轮轨迹" OrElse Scene = "短舱测力" OrElse Scene = "试验吊舱" OrElse Scene = "双尾翼喷气" Then
                 DrawJetStudy(g, edge, accent, glass)
             ElseIf Scene = "三角翼客机" Then
                 For Each side As Integer In New Integer() {-1, 1}
